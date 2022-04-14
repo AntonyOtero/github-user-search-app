@@ -82,7 +82,7 @@ function App() {
   return (
     <div className="w-[730px] text-base App">
       <div className='flex justify-between items-center mb-9'>
-        <p className='text-2xl font-bold'>devfinder</p>
+        <p className='text-2xl font-bold dark:text-white'>devfinder</p>
         <button
           className='flex cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300'
           onClick={handleDarkToggle}
@@ -120,7 +120,7 @@ function App() {
         <div className='w-full text-left'>
           <div className='flex justify-between mb-5'>
             <div>
-              <h1 className='mb-0.5 text-2xl font-bold'>
+              <h1 className='mb-0.5 text-2xl font-bold text-theme-cool-300'>
                 {data.name}
               </h1>
               <a
