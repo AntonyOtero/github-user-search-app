@@ -83,14 +83,14 @@ function App() {
   }, [query])
 
   return (
-    <div className="w-[730px] text-base App">
+    <div className="max-w-[730px] md:mx-24 text-base App">
       <div className='flex justify-between items-center mb-9'>
         <p className='text-2xl font-bold dark:text-white'>devfinder</p>
         <button
           className='flex cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300 dark:text-white dark:fill-white dark:hover:text-theme-cool-100 dark:hover:fill-theme-cool-100'
           onClick={handleDarkToggle}
         >
-          <p className='mr-4 text-sm font-bold uppercase'>
+          <p className='mr-4 text-sm font-bold uppercase tracking-[2.5px]'>
             {isDark ? 'Light' : 'Dark'}
           </p>
           {
@@ -104,7 +104,7 @@ function App() {
       <form className='flex items-center mb-6 p-2.5 bg-white dark:bg-theme-dark rounded-10 shadow-card' action="" method="get">
         <div className='relative flex w-full'>
           <img className='ml-5' src={iconSearch} alt="" />
-          <input className='ml-6 w-full outline-none text-lg bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
+          <input className='ml-6 w-full outline-none text-lg md:text-[18px] bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
           <span className={
             noResults ?
               'absolute right-0 mr-6 text-theme-error font-bold' :
@@ -122,12 +122,12 @@ function App() {
         </button>
       </form>
 
-      <div className='flex justify-between p-12 bg-white dark:bg-theme-dark rounded-2xl shadow-card'>
-        <div className='max-w-[117px] mr-9'>
+      <div className='flex md:block justify-between p-12 md:p-10 bg-white dark:bg-theme-dark rounded-2xl shadow-card'>
+        <div className='max-w-[117px] mr-9 md:float-left'>
           <img className='rounded-full' src={data.avatar_url} alt="" />
         </div>
         <div className='w-full text-left'>
-          <div className='flex justify-between mb-5'>
+          <div className='flex md:flex-col justify-between mb-5'>
             <div>
               <h1 className='mb-0.5 text-2xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.name}
@@ -144,7 +144,7 @@ function App() {
               </p>
             </div>
           </div>
-          <div className='text-theme-cool-200 dark:text-white opacity-75'>
+          <div className='text-theme-cool-200 dark:text-white opacity-75 md:clear-left md:pt-6'>
             <p>
               {data.bio ?
                 data.bio :
