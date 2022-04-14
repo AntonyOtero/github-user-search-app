@@ -104,7 +104,7 @@ function App() {
       <form className='flex items-center mb-6 p-2.5 bg-white dark:bg-theme-dark rounded-10 shadow-card' action="" method="get">
         <div className='relative flex w-full'>
           <img className='ml-5' src={iconSearch} alt="" />
-          <input className='ml-6 w-full outline-none text-lg bg-inherit placeholder:text-theme-cool-200' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
+          <input className='ml-6 w-full outline-none text-lg bg-inherit placeholder:text-theme-cool-200 dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
           <span className={
             noResults ?
               'absolute right-0 mr-6 text-theme-error font-bold' :
