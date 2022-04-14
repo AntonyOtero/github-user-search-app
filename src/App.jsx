@@ -107,7 +107,7 @@ function App() {
           <input className='ml-6 w-full outline-none text-lg md:text-[18px] bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
           <span className={
             noResults ?
-              'absolute right-0 mr-6 text-theme-error font-bold' :
+              'absolute right-0 mr-6 text-theme-error font-bold bg-white dark:bg-theme-dark dark:px-2' :
               'hidden'
           }>
             No results
