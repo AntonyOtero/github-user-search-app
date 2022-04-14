@@ -3,10 +3,10 @@ import { Octokit } from '@octokit/core';
 import { ReactComponent as IconMoon } from './assets/icon-moon.svg';
 import { ReactComponent as IconSun } from './assets/icon-sun.svg';
 import iconSearch from './assets/icon-search.svg';
-import iconLocation from './assets/icon-location.svg';
-import iconWebsite from './assets/icon-website.svg';
-import iconTwitter from './assets/icon-twitter.svg';
-import iconCompany from './assets/icon-company.svg';
+import { ReactComponent as IconLocation } from './assets/icon-location.svg';
+import { ReactComponent as IconWebsite } from './assets/icon-website.svg';
+import { ReactComponent as IconTwitter } from './assets/icon-twitter.svg';
+import { ReactComponent as IconCompany } from './assets/icon-company.svg';
 import './App.css';
 
 const octokit = new Octokit({ auth: `` })
@@ -129,7 +129,7 @@ function App() {
         <div className='w-full text-left'>
           <div className='flex justify-between mb-5'>
             <div>
-              <h1 className='mb-0.5 text-2xl font-bold text-theme-cool-300'>
+              <h1 className='mb-0.5 text-2xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.name}
               </h1>
               <a
@@ -138,13 +138,13 @@ function App() {
                 @{data.login}
               </a>
             </div>
-            <div className='text-theme-cool-100'>
+            <div className='text-theme-cool-100 dark:text-white'>
               <p>
                 {getJoinedDate(data.created_at)}
               </p>
             </div>
           </div>
-          <div className='text-theme-cool-200 opacity-75'>
+          <div className='text-theme-cool-200 dark:text-white opacity-75'>
             <p>
               {data.bio ?
                 data.bio :
@@ -154,33 +154,33 @@ function App() {
           </div>
           <div className='flex py-4 px-8 my-8 rounded-10 bg-theme-offwhite dark:bg-theme-darker'>
             <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200'>Repos</p>
-              <p className='text-xl font-bold text-theme-cool-300'>
+              <p className='text-sm text-theme-cool-200 dark:text-white'>Repos</p>
+              <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.public_repos}
               </p>
             </div>
             <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200'>Followers</p>
-              <p className='text-xl font-bold text-theme-cool-300'>
+              <p className='text-sm text-theme-cool-200 dark:text-white'>Followers</p>
+              <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.followers}
               </p>
             </div>
             <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200'>Following</p>
-              <p className='text-xl font-bold text-theme-cool-300'>
+              <p className='text-sm text-theme-cool-200 dark:text-white'>Following</p>
+              <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.following}
               </p>
             </div>
           </div>
-          <div className='flex'>
+          <div className='flex text-theme-cool-200 fill-theme-cool-200 dark:text-white dark:fill-white'>
             <div className='mr-16'>
               <div className={
                 data.location ?
                   'flex items-center mb-5' :
                   'flex items-center mb-5 opacity-50'
               }>
-                <img src={iconLocation} alt="" />
-                <p className='ml-4 text-theme-cool-200'>
+                <IconLocation />
+                <p className='ml-4'>
                   {data.location ?
                     data.location :
                     'Not Available'
@@ -192,9 +192,9 @@ function App() {
                   'flex items-center' :
                   'flex items-center opacity-50 pointer-events-none'
               }>
-                <img src={iconWebsite} alt="" />
+                <IconWebsite />
                 <a
-                  className='ml-4 text-theme-cool-200 hover:underline'
+                  className='ml-4 hover:underline'
                   href={data.blog}
                 >
                   {data.blog ? data.blog : 'Not Available'}
@@ -207,8 +207,8 @@ function App() {
                   'flex items-center mb-5' :
                   'flex items-center mb-5 opacity-50'
               }>
-                <img src={iconTwitter} alt="" />
-                <p className='ml-4 text-theme-cool-200'>
+                <IconTwitter />
+                <p className='ml-4'>
                   {data.twitter_username ?
                     `@${data.twitter_username}` :
                     `Not Available`
@@ -220,8 +220,8 @@ function App() {
                   'flex items-center' :
                   'flex items-center opacity-50'
               }>
-                <img src={iconCompany} alt="" />
-                <p className='ml-4 text-theme-cool-200'>
+                <IconCompany />
+                <p className='ml-4'>
                   {data.company ?
                     data.company :
                     `Not Available`
