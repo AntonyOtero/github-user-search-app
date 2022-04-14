@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -19,6 +20,10 @@ module.exports = {
         'theme-warm-100': 'rgb(30, 42, 71)',
         'theme-warm-200': 'rgb(20, 29, 47)',
         'theme-primary': 'rgb(0, 121, 255)',
+        'theme-primary-faded': 'rgb(96, 171, 255)',
+        'theme-error': '#F74646',
+        'theme-dark': '#1E2A47',
+        'theme-darker': '#141D2F',
       },
       borderRadius: {
         '10': '10px',
