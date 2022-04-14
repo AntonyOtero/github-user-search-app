@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Octokit } from '@octokit/core';
 import { ReactComponent as IconMoon } from './assets/icon-moon.svg';
+import { ReactComponent as IconSun } from './assets/icon-sun.svg';
 import iconSearch from './assets/icon-search.svg';
 import iconLocation from './assets/icon-location.svg';
 import iconWebsite from './assets/icon-website.svg';
@@ -27,6 +28,7 @@ const defaultUser = {
 }
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
   const [input, setInput] = useState(null)
   const [query, setQuery] = useState(`octocat`)
   const [noResults, setNoResults] = useState(false)
@@ -34,6 +36,7 @@ function App() {
   
   const handleDarkToggle = (e) => {
     document.body.classList.toggle('dark')
+    setIsDark(!isDark)
     if (document.body.classList.contains('dark')) {
       document.body.style.setProperty('background-color', '#141D2F')
     } else {
@@ -84,11 +87,17 @@ function App() {
       <div className='flex justify-between items-center mb-9'>
         <p className='text-2xl font-bold dark:text-white'>devfinder</p>
         <button
-          className='flex cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300'
+          className='flex cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300 dark:text-white dark:fill-white dark:hover:text-theme-cool-100 dark:hover:fill-theme-cool-100'
           onClick={handleDarkToggle}
         >
-          <p className='mr-4 text-sm font-bold uppercase'>Dark</p>
-          <IconMoon />
+          <p className='mr-4 text-sm font-bold uppercase'>
+            {isDark ? 'Light' : 'Dark'}
+          </p>
+          {
+            isDark ?
+              <IconSun /> :
+              <IconMoon />
+          }
         </button>
       </div>
 
