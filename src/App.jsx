@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Octokit } from '@octokit/core';
+
 import { ReactComponent as IconMoon } from './assets/icon-moon.svg';
 import { ReactComponent as IconSun } from './assets/icon-sun.svg';
 import iconSearch from './assets/icon-search.svg';
@@ -7,7 +8,6 @@ import { ReactComponent as IconLocation } from './assets/icon-location.svg';
 import { ReactComponent as IconWebsite } from './assets/icon-website.svg';
 import { ReactComponent as IconTwitter } from './assets/icon-twitter.svg';
 import { ReactComponent as IconCompany } from './assets/icon-company.svg';
-import './App.css';
 
 const octokit = new Octokit({ auth: `` })
 
@@ -83,16 +83,16 @@ function App() {
   }, [query])
 
   return (
-    <div className="max-w-[730px] md:mx-24 text-base App">
-      <div className='flex justify-between items-center mb-9'>
+    <div className="pt-8 px-6">
+      <div className='flex justify-between mb-9'>
         <p className='text-2xl font-bold dark:text-white'>devfinder</p>
         <button
-          className='flex cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300 dark:text-white dark:fill-white dark:hover:text-theme-cool-100 dark:hover:fill-theme-cool-100'
+          className='flex items-center text-sm cursor-pointer text-theme-cool-100 hover:text-theme-cool-300 fill-theme-cool-100 hover:fill-theme-cool-300 dark:text-white dark:fill-white dark:hover:text-theme-cool-100 dark:hover:fill-theme-cool-100'
           onClick={handleDarkToggle}
         >
-          <p className='mr-4 text-sm font-bold uppercase tracking-[2.5px]'>
+          <span className='mr-4 font-bold uppercase tracking-[2.5px]'>
             {isDark ? 'Light' : 'Dark'}
-          </p>
+          </span>
           {
             isDark ?
               <IconSun /> :
@@ -101,20 +101,20 @@ function App() {
         </button>
       </div>
 
-      <form className='flex items-center mb-6 p-2.5 bg-white dark:bg-theme-dark rounded-10 shadow-card' action="" method="get">
-        <div className='relative flex w-full'>
-          <img className='ml-5' src={iconSearch} alt="" />
-          <input className='ml-6 w-full outline-none text-lg md:text-[18px] bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
+      <form className='bg-white dark:bg-theme-dark rounded-10 shadow-card' action="" method="get">
+        <div className=''>
+          <img className='' src={iconSearch} alt="" />
+          <input className='outline-none bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
           <span className={
             noResults ?
-              'absolute right-0 mr-6 text-theme-error font-bold bg-white dark:bg-theme-dark dark:px-2' :
+              'text-theme-error font-bold bg-white dark:bg-theme-dark' :
               'hidden'
           }>
             No results
           </span>
         </div>
         <button
-          className='py-3 px-6 text-white text-lg font-bold rounded-10 bg-theme-primary hover:bg-theme-primary-faded'
+          className='text-white rounded-10 bg-theme-primary hover:bg-theme-primary-faded'
           type="submit"
           onClick={handleSearch}
         >
@@ -122,18 +122,18 @@ function App() {
         </button>
       </form>
 
-      <div className='flex md:block justify-between p-12 md:p-10 bg-white dark:bg-theme-dark rounded-2xl shadow-card'>
-        <div className='max-w-[117px] mr-9 md:float-left'>
+      <div className='bg-white dark:bg-theme-dark rounded-2xl shadow-card'>
+        <div className=''>
           <img className='rounded-full' src={data.avatar_url} alt="" />
         </div>
-        <div className='w-full text-left'>
-          <div className='flex md:flex-col justify-between mb-5'>
+        <div className=''>
+          <div className=''>
             <div>
-              <h1 className='mb-0.5 text-2xl font-bold text-theme-cool-300 dark:text-white'>
+              <h1 className='font-bold text-theme-cool-300 dark:text-white'>
                 {data.name}
               </h1>
               <a
-                className='text-theme-primary text-lg hover:underline'
+                className='text-theme-primary hover:underline'
                 href={data.html_url}>
                 @{data.login}
               </a>
@@ -144,7 +144,7 @@ function App() {
               </p>
             </div>
           </div>
-          <div className='text-theme-cool-200 dark:text-white opacity-75 md:clear-left md:pt-6'>
+          <div className='text-theme-cool-200 dark:text-white opacity-75 '>
             <p>
               {data.bio ?
                 data.bio :
@@ -152,35 +152,35 @@ function App() {
               }
             </p>
           </div>
-          <div className='flex py-4 px-8 my-8 rounded-10 bg-theme-offwhite dark:bg-theme-darker'>
-            <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200 dark:text-white'>Repos</p>
+          <div className='rounded-10 bg-theme-offwhite dark:bg-theme-darker'>
+            <div className=''>
+              <p className='text-theme-cool-200 dark:text-white'>Repos</p>
               <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
                 {data.public_repos}
               </p>
             </div>
-            <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200 dark:text-white'>Followers</p>
-              <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
+            <div className=''>
+              <p className='text-theme-cool-200 dark:text-white'>Followers</p>
+              <p className='font-bold text-theme-cool-300 dark:text-white'>
                 {data.followers}
               </p>
             </div>
-            <div className='w-1/3'>
-              <p className='text-sm text-theme-cool-200 dark:text-white'>Following</p>
-              <p className='text-xl font-bold text-theme-cool-300 dark:text-white'>
+            <div className=''>
+              <p className='text-theme-cool-200 dark:text-white'>Following</p>
+              <p className='font-bold text-theme-cool-300 dark:text-white'>
                 {data.following}
               </p>
             </div>
           </div>
-          <div className='flex text-theme-cool-200 fill-theme-cool-200 dark:text-white dark:fill-white'>
-            <div className='mr-16'>
+          <div className='text-theme-cool-200 fill-theme-cool-200 dark:text-white dark:fill-white'>
+            <div className=''>
               <div className={
                 data.location ?
-                  'flex items-center mb-5' :
-                  'flex items-center mb-5 opacity-50'
+                  '' :
+                  'opacity-50'
               }>
                 <IconLocation />
-                <p className='ml-4'>
+                <p className=''>
                   {data.location ?
                     data.location :
                     'Not Available'
@@ -189,12 +189,12 @@ function App() {
               </div>
               <div className={
                 data.blog ?
-                  'flex items-center' :
-                  'flex items-center opacity-50 pointer-events-none'
+                  '' :
+                  'opacity-50 pointer-events-none'
               }>
                 <IconWebsite />
                 <a
-                  className='ml-4 hover:underline'
+                  className='hover:underline'
                   href={data.blog}
                 >
                   {data.blog ? data.blog : 'Not Available'}
@@ -204,11 +204,11 @@ function App() {
             <div>
               <div className={
                 data.twitter_username ?
-                  'flex items-center mb-5' :
-                  'flex items-center mb-5 opacity-50'
+                  '' :
+                  'opacity-50'
               }>
                 <IconTwitter />
-                <p className='ml-4'>
+                <p className=''>
                   {data.twitter_username ?
                     `@${data.twitter_username}` :
                     `Not Available`
@@ -217,11 +217,11 @@ function App() {
               </div>
               <div className={
                 data.company ?
-                  'flex items-center' :
-                  'flex items-center opacity-50'
+                  '' :
+                  'opacity-50'
               }>
                 <IconCompany />
-                <p className='ml-4'>
+                <p className=''>
                   {data.company ?
                     data.company :
                     `Not Available`
