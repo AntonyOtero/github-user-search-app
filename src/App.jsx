@@ -82,9 +82,6 @@ function App() {
       })
   }, [query])
 
-  // TODO: Adjust width of search input
-  // TODO: Fix "No results" text
-
   return (
     <div className="max-w-[343px] py-8 px-6 mx-auto [ md:max-w-[826px] md:py-36 md:px-24 ] [ lg:px-0 ]">
       <div className='flex justify-between mb-9'>
@@ -109,9 +106,9 @@ function App() {
         action=""
         method="get"
       >
-        <div className='relative flex'>
+        <div className='relative flex w-full'>
           <img className='p-2 mr-2' src={iconSearch} alt="" />
-          <input className='text-sm outline-none bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white [ md:text-lg ]' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
+          <input className='w-full text-sm outline-none bg-inherit placeholder:text-theme-cool-200 dark:text-white dark:placeholder:text-white [ md:text-lg ]' type="text" name="username" placeholder='Search GitHub username...' onChange={handleInput} />
           <span className={
             noResults ?
               'absolute -top-8 text-theme-error font-bold' :
