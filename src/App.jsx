@@ -84,10 +84,9 @@ function App() {
 
   // TODO: Adjust width of search input
   // TODO: Fix "No results" text
-  // TODO: Add max-widths
 
   return (
-    <div className="py-8 px-6 [ md:py-36 md:px-24 ]">
+    <div className="max-w-[343px] py-8 px-6 mx-auto [ md:max-w-[826px] md:py-36 md:px-24 ] [ lg:px-0 ]">
       <div className='flex justify-between mb-9'>
         <p className='text-2xl font-bold dark:text-white'>devfinder</p>
         <button
