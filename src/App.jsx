@@ -130,12 +130,12 @@ function App() {
         </button>
       </form>
 
-      <div className='py-8 px-6 bg-white dark:bg-theme-dark rounded-2xl shadow-card dark:shadow-none [ md:p-10 ]'>
-        <div className='w-16 mr-5 float-left [ md:w-28 md:mr-10 ]'>
+      <div className='py-8 px-6 bg-white dark:bg-theme-dark rounded-2xl shadow-card dark:shadow-none [ md:p-10 ] [ lg:flex lg:p-12 ]'>
+        <div className='w-16 mr-5 float-left [ md:w-28 md:mr-10 ] [ lg:mr-9 lg:float-none ]'>
           <img className='rounded-full' src={data.avatar_url} alt="" />
         </div>
-        <div className=''>
-          <div className=''>
+        <div className='[ lg:flex-1 ]'>
+          <div className='[ lg:flex lg:justify-between ]'>
             <div>
               <h1 className='font-bold text-theme-cool-300 dark:text-white [ md:text-2xl ]'>
                 {data.name}
@@ -152,7 +152,7 @@ function App() {
               </p>
             </div>
           </div>
-          <div className='mt-8 mb-6 text-sm text-theme-cool-200 dark:text-white opacity-75 [ md:mt-14 md:text-base ]'>
+          <div className='mt-8 mb-6 text-sm text-theme-cool-200 dark:text-white opacity-75 [ md:mt-14 md:text-base ] [ lg:mt-5 lg:mb-8 ]'>
             <p>
               {data.bio ?
                 data.bio :
@@ -160,20 +160,20 @@ function App() {
               }
             </p>
           </div>
-          <div className='flex items-center justify-between p-3.5 mb-6 rounded-10 bg-theme-offwhite dark:bg-theme-darker [ md:py-4 md:px-8 md:mb-10 ]'>
-            <div className='flex flex-col items-center'>
+          <div className='flex items-center justify-between p-3.5 mb-6 rounded-10 bg-theme-offwhite dark:bg-theme-darker [ md:py-4 md:px-8 md:mb-10 ] [ lg:mb-9 ]'>
+            <div className='text-center [ lg:text-left ]'>
               <p className='text-sm text-theme-cool-200 dark:text-white'>Repos</p>
               <p className='font-bold text-theme-cool-300 dark:text-white [ md:text-xl ]'>
                 {data.public_repos}
               </p>
             </div>
-            <div className='flex flex-col items-center'>
+            <div className='text-center [ lg:text-left ]'>
               <p className='text-sm text-theme-cool-200 dark:text-white'>Followers</p>
               <p className='font-bold text-theme-cool-300 dark:text-white [ md:text-xl ]'>
                 {data.followers}
               </p>
             </div>
-            <div className='flex flex-col items-center'>
+            <div className='text-center [ lg:text-left ]'>
               <p className='text-sm text-theme-cool-200 dark:text-white'>Following</p>
               <p className='font-bold text-theme-cool-300 dark:text-white [ md:text-xl ]'>
                 {data.following}
